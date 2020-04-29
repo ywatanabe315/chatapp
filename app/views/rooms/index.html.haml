@@ -1,0 +1,12 @@
+%h1 Rooms
+
+%table
+  %thead
+    %tr
+      %th roomid
+      %th name
+  %tbody
+    - @rooms.each do |room|
+      %%tr
+        %td= room.id
+        %td= link_to room.name, room 
