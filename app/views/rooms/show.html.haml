@@ -1,2 +1,29 @@
-%h1 Rooms#show
-%p Find me in app/views/rooms/show.html.haml
+.messages
+  %h1.room_name= @room.name
+
+  - @messages.each do |message|
+    %p= message.content
+    %p= message.created_at
+
+  #send
+    = form_with model: @message do |f|
+      = f.text_area :content
+      = f.hidden_field :room_id, value: @room.id
+      = f.submit '送信'
+
+-#
+  #messages
+    .message_left
+      .message_box
+        .message_content
+          .message_text hogehoge
+
+    .message_right
+      .message_box
+        .message_content
+          .message_text hage
+
+    .clear
+
+  #send
+    %p submit
